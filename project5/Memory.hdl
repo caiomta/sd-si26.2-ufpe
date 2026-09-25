@@ -40,7 +40,7 @@ CHIP Memory {
     Or(a=orA8to10, b=address[11], out=orA8to11);
     Or(a=orA8to11, b=address[12], out=orA8to12);
     Or(a=lsbA, b=orA8to12, out=kbdMuxSel);
-    Mux16(a=kbdOut, b=false, sel=kbdMuxSel, out=kbdMux);  // if address > 0x6000 then 0
+    Mux16(a=kbdOut, b=false, sel=kbdMuxSel, out=kbdMux);  // if address > 0x6000 then out = 0
     Mux16(a=screenOut, b=kbdMux, sel=address[13], out=ioMux);  
     Mux16(a=dataOut, b=ioMux, sel=address[14], out=out);
 }
